@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake: Configure",
+      "type": "shell",
+      "command": "cmake -S . -B build",
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "detail": "Configure the project with CMake"
+    },
+    {
+      "label": "CMake: Build",
+      "type": "shell",
+      "command": "cmake --build build",
+      "group": "build",
+      "dependsOn": "CMake: Configure",
+      "problemMatcher": ["$gcc"],
+      "detail": "Build the heap sort project"
+    },
+    {
+      "label": "Run Heap Sort Demo",
+      "type": "shell",
+      "command": "./build/heap_sort_demo --demo",
+      "group": "test",
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Run Heap Sort Benchmark",
+      "type": "shell",
+      "command": "./build/heap_sort_demo --benchmark",
+      "group": "test",
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Run Heap Sort Tests",
+      "type": "shell",
+      "command": "./build/heap_sort_test",
+      "group": "test",
+      "presentation": {
+        "reveal": "always"
+      }
+    }
+  ]
+}
